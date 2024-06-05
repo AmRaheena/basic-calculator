@@ -1,0 +1,92 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <center><h2 style="color:green"> Simple calculator</h2>
+    <div class="container">
+      <table id="calcu"> 
+        <tr> 
+            <td colspan="3"> 
+                <input type="text" id="result"> 
+            </td> 
+            <td><input type="button" value="C" onclick="clean()"></td> 
+        </tr> 
+  
+        <tr> 
+            <td><input type="button" value="1" onclick="getNumber(1)"></td> 
+            <td><input type="button" value="2" onclick="getNumber(2)"></td> 
+            <td><input type="button"  value="3" onclick="getNumber(3)"></td> 
+            <td><input type="button" value="/"  onclick="getOperator('/')"></td>
+        </tr>
+        <tr> 
+            <td><input type="button" value="4" onclick="getNumber(4)"></td> 
+            <td><input type="button"  value="5" onclick="getNumber(5)"></td> 
+            <td><input type="button" value="6" onclick="getNumber(6)"></td> 
+            <td><input type="button" value="*" onclick="getOperator('*')"></td> 
+        </tr> 
+        <tr> 
+            <td><input type="button"  value="7" onclick="getNumber(7)"></td> 
+            <td><input type="button" value="8" onclick="getNumber(8)"></td> 
+            <td><input type="button"  value="9" onclick="getNumber(9)"></td> 
+            <td><input type="button"  value="-" onclick="getOperator('-')"></td> 
+        </tr> 
+        <tr> 
+            <td><input type="button"  value="0" onclick="getNumber(0)"></td> 
+            <td><input type="button"  value="." onclick="getNumber('.')"></td> 
+            <td><input type="button"  value="=" onclick="solve(op)"></td> 
+            <td><input type="button" value="+" onclick="getOperator('+')"></td> 
+        </tr> 
+    </table>
+     
+    </div>
+</center>
+
+    <script>
+        var n1,n2,op;
+
+        var plu,minus,into,div;
+        function append(){
+            document.getElementById('result').value+='.';
+        }
+        function getNumber(n)
+        {
+            
+            document.getElementById("result").value+=n;
+        }
+        function solve(op)
+        {
+             n2=parseFloat(document.getElementById('result').value);
+            switch(op){
+                case '+':
+                        document.getElementById('result').value=n1+n2;
+                        break;
+                case '-':
+                        document.getElementById('result').value=n1-n2;
+                        break;
+                case '*':
+                        document.getElementById('result').value=n1*n2;
+                        break;
+                case '/':
+                        document.getElementById('result').value=n1/n2;
+                        break;
+                
+            }
+        }
+        
+        function getOperator(operator)
+        {
+            n1=parseFloat(document.getElementById('result').value);
+            document.getElementById('result').value=null;
+            op=operator;           
+        }
+       
+        function clean()
+        {
+            document.getElementById('result').value=null;
+        }
+       
+
+    </script>
+  </body>
+</html>
